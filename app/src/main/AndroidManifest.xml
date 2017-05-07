@@ -41,7 +41,8 @@
         </activity>
         <activity android:name=".FinishRunActivity" />
         <activity android:name=".CountRunActivity" />
-        <activity android:name=".WhileRunActivity"></activity>
+        <activity android:name=".WhileRunActivity" />
+        <activity android:name=".Main2Activity"></activity>
     </application>
 
 </manifest>

@@ -52,16 +52,14 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             finish();
         }
         else if (i == R.id.add_work) {
-            Intent intent = new Intent(this, AddWork.class);
+            Intent intent = new Intent(this, Main2Activity.class);
             startActivity(intent);
             overridePendingTransition(R.anim.anim01, R.anim.anim02);
-            finish();
         }
         else if (i == R.id.run) {
-            Intent intent = new Intent(this, RunActivity.class);
+            Intent intent = new Intent(this,Main2Activity.class);
             startActivity(intent);
             overridePendingTransition(R.anim.anim01, R.anim.anim02);
-            finish();
         }
 
     }

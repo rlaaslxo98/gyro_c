@@ -1,5 +1,6 @@
 package com.dudwo.gyrocounter;
 
+import android.app.Fragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -10,31 +11,34 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 
 
-public class RunActivity extends AppCompatActivity implements View.OnClickListener {
+public class RunActivity extends Fragment implements View.OnClickListener {
+
+    Main2Activity activity = (Main2Activity)getActivity();
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.activity_run,container,false);
+    }
+
     Button button;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_run);
+        getActivity(). setContentView(R.layout.activity_run);
 
-        findViewById(R.id.start).setOnClickListener(this);
-
-        button  = (Button) findViewById(R.id.popup);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                startActivity(new Intent(RunActivity.this, SetRunActivity.class));
-            }
-        });
+        getActivity(). findViewById(R.id.start).setOnClickListener(this);
+        getActivity(). findViewById(R.id.popup).setOnClickListener(this);
 
 
-        LocalBroadcastManager.getInstance(this).registerReceiver(
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(
                 connectionUpdates , new IntentFilter("BLUETOOTH"));
     }
 
@@ -49,17 +53,20 @@ public class RunActivity extends AppCompatActivity implements View.OnClickListen
         }
     };
 
+
     public void onClick(View v) {
         int i = v.getId();
 
         if (i == R.id.start) {
-            Intent intent = new Intent(this, CountRunActivity.class);
+            Intent intent = new Intent(getActivity(), CountRunActivity.class);
             startActivity(intent);
-            finish();
+            getActivity(). finish();
+        }
+
+        if (i == R.id.popup){
+            Intent intent = new Intent(getActivity(), SetRunActivity.class);
+            startActivity(intent);
         }
     }
-
-
-
 
 }
