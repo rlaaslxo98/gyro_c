@@ -24,46 +24,42 @@
                 android:layout_weight="10">
 
                 <Button
-                    android:id="@+id/fragment1"
+                    android:id="@+id/addwork"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="#ff7473"
-                    android:onClick="fragment1"
                     android:text="운\n동\n추\n가"
                     android:textColor="#ffffff"
                     android:textSize="25dp"
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/fragment2"
+                    android:id="@+id/run"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="#ffc952"
-                    android:onClick="fragment2"
                     android:text="R\nU\nN"
                     android:textColor="#ffffff"
                     android:textSize="25dp" />
 
                 <Button
-                    android:id="@+id/fragment3"
+                    android:id="@+id/history"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="#5f62e1"
-                    android:onClick="fragment3"
                     android:text="H\nI\nS\nT\nO\nR\nY"
                     android:textColor="#ffffff"
                     android:textSize="15dp" />
 
                 <Button
-                    android:id="@+id/fragment4"
+                    android:id="@+id/help"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="#34314c"
-                    android:onClick="fragment4"
                     android:text="H\nE\nL\nP"
                     android:textColor="#ffffff"
                     android:textSize="25dp" />

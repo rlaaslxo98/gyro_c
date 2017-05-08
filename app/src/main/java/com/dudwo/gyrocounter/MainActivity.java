@@ -14,14 +14,11 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseUser user = firebaseAuth.getCurrentUser();
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.sign_out_button).setOnClickListener(this);
         findViewById(R.id.add_work).setOnClickListener(this);
         findViewById(R.id.run).setOnClickListener(this);
 
@@ -37,6 +34,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             finish();
         }
     }
+
     private void signOut() {
         firebaseAuth.signOut();
     }
@@ -44,22 +42,19 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public void onClick(View v) {
         int i = v.getId();
 
-        if (i == R.id.sign_out_button) {
-            signOut();
-            Intent intent = new Intent(this, EmailPasswordActivity.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.anim01, R.anim.anim02);
-            finish();
-        }
-        else if (i == R.id.add_work) {
+        if (i == R.id.add_work) {
             Intent intent = new Intent(this, Main2Activity.class);
             startActivity(intent);
             overridePendingTransition(R.anim.anim01, R.anim.anim02);
+            Main2Activity.flag = 1;
+            finish();
         }
         else if (i == R.id.run) {
             Intent intent = new Intent(this,Main2Activity.class);
             startActivity(intent);
             overridePendingTransition(R.anim.anim01, R.anim.anim02);
+            Main2Activity.flag = 2;
+            finish();
         }
 
     }

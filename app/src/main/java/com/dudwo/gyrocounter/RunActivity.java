@@ -20,28 +20,19 @@ import android.widget.Button;
 
 public class RunActivity extends Fragment implements View.OnClickListener {
 
-    Main2Activity activity = (Main2Activity)getActivity();
-
+    View rootView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_run,container,false);
-    }
+        rootView = inflater.inflate(R.layout.activity_run,container,false);
 
-    Button button;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getActivity(). setContentView(R.layout.activity_run);
-
-        getActivity(). findViewById(R.id.start).setOnClickListener(this);
-        getActivity(). findViewById(R.id.popup).setOnClickListener(this);
-
+        rootView.findViewById(R.id.start).setOnClickListener(this);
+        rootView.findViewById(R.id.popup).setOnClickListener(this);
 
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(
                 connectionUpdates , new IntentFilter("BLUETOOTH"));
-    }
 
+        return rootView;
+    }
 
     BroadcastReceiver connectionUpdates = new BroadcastReceiver() {
         @Override
@@ -49,7 +40,7 @@ public class RunActivity extends Fragment implements View.OnClickListener {
             int action = intent.getIntExtra("value", 1);
             Log.d("RUN", String.valueOf(action));
 
-                     //TODO here
+            //TODO here
         }
     };
 
@@ -57,15 +48,15 @@ public class RunActivity extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         int i = v.getId();
 
-        if (i == R.id.start) {
-            Intent intent = new Intent(getActivity(), CountRunActivity.class);
-            startActivity(intent);
-            getActivity(). finish();
-        }
-
-        if (i == R.id.popup){
+        if (i == R.id.popup) {
             Intent intent = new Intent(getActivity(), SetRunActivity.class);
             startActivity(intent);
+        }
+
+        if (i == R.id.start){
+            Intent intent = new Intent(getActivity(), CountRunActivity.class);
+            startActivity(intent);
+            getActivity().finish();
         }
     }
 
