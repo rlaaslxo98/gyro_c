@@ -25,7 +25,7 @@ public class CountRunActivity extends AppCompatActivity implements View.OnClickL
 
                 finish();
             }
-        }, 2950);
+        }, 3000);
 
         viewFlipper = (ViewFlipper) this.findViewById(R.id.viewFlipper);
         viewFlipper.setOnClickListener(this);

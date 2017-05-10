@@ -8,10 +8,16 @@
     android:background="#ffc952">
 
     <RelativeLayout
-        android:layout_width="411dp"
-        android:layout_height="603dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,12 +27,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_weight="1">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="2">
 
                     <TextView
                         android:id="@+id/운동선택"
@@ -70,10 +77,10 @@
                         android:id="@+id/popup"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="..."
                         android:layout_alignBottom="@+id/textView8"
                         android:layout_alignEnd="@+id/editText"
-                        android:layout_marginEnd="21dp" />
+                        android:layout_marginEnd="21dp"
+                        android:text="..." />
 
                     <TextView
                         android:id="@+id/textView5"
@@ -100,7 +107,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="2">
 
 
                     <TextView
@@ -148,7 +155,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1.5">
+                    android:layout_weight="3">
 
                     <Button
                         android:id="@+id/start"
@@ -175,6 +182,14 @@
                         android:textSize="25sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="10">
+
             </LinearLayout>
 
         </LinearLayout>
