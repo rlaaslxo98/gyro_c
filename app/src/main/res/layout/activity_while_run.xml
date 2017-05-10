@@ -44,7 +44,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="50dp"
-                        android:text="ì´? ?Ÿìˆ˜:"
+                        android:text="ìš´ë™íšŸìˆ˜:"
                         android:textColor="#ffffff"
                         android:textSize="40sp"
                         android:textStyle="bold" />
@@ -66,7 +66,7 @@
                         android:layout_alignBottom="@+id/editText6"
                         android:layout_toEndOf="@+id/editText6"
                         android:inputType="textPersonName"
-                        android:text="ë²?"
+                        android:text="ë²ˆ"
                         android:textColor="#ffffff"
                         android:textSize="40sp" />
 
@@ -108,7 +108,7 @@
                         android:layout_alignBottom="@+id/editText9"
                         android:layout_toEndOf="@+id/editText9"
                         android:inputType="textPersonName"
-                        android:text="ì´?"
+                        android:text="ì´ˆ"
                         android:textColor="#ffffff"
                         android:textSize="40sp" />
 
@@ -133,7 +133,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="32dp"
                         android:background="@drawable/buttonsave_select"
-                        android:text="?¼ì‹œ?•ì?"
+                        android:text="ì¼ì‹œì •ì§€"
                         android:textColor="#ff7473"
                         android:textSize="25sp" />
 

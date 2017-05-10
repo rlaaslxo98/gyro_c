@@ -36,14 +36,14 @@
                     android:layout_weight="2">
 
                     <TextView
-                        android:id="@+id/?´ë™? íƒ"
+                        android:id="@+id/select_work"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="14dp"
-                        android:text="?´ë™? íƒ"
+                        android:text="ìš´ë™ ì„ íƒ"
                         android:textColor="#ffffff"
                         android:textSize="30sp"
                         android:textStyle="bold" />
@@ -62,12 +62,12 @@
                         android:id="@+id/editText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/?´ë™? íƒ"
-                        android:layout_below="@+id/?´ë™? íƒ"
+                        android:layout_alignStart="@+id/select_work"
+                        android:layout_below="@+id/select_work"
                         android:layout_marginTop="13dp"
                         android:background="@null"
                         android:ems="10"
-                        android:hint="?´ë™?? ? íƒ?´ì£¼?¸ìš”"
+                        android:hint="ì›í•˜ëŠ” ìš´ë™ì„ ì„ íƒí•˜ì„¸ìš”"
                         android:inputType="textPersonName"
                         android:textColor="@color/colorAccent"
                         android:textColorLink="#ffffff"
@@ -97,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignBaseline="@+id/textView5"
                         android:layout_alignBottom="@+id/textView5"
-                        android:layout_toEndOf="@+id/?´ë™? íƒ"
+                        android:layout_toEndOf="@+id/select_work"
                         android:text="MAX"
                         android:textSize="20sp" />
 
@@ -111,14 +111,14 @@
 
 
                     <TextView
-                        android:id="@+id/?œí•œ?œê°„"
+                        android:id="@+id/timer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="14dp"
-                        android:text="?œí•œ?œê°„"
+                        android:text="timer"
                         android:textColor="#ffffff"
                         android:textSize="30sp"
                         android:textStyle="bold" />
@@ -127,8 +127,8 @@
                         android:id="@+id/editText3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/?œí•œ?œê°„"
-                        android:layout_below="@+id/?œí•œ?œê°„"
+                        android:layout_alignStart="@+id/timer"
+                        android:layout_below="@+id/timer"
                         android:layout_marginTop="20dp"
                         android:ems="4"
                         android:inputType="time" />
@@ -140,13 +140,13 @@
                         android:layout_alignBottom="@+id/editText3"
 
                         android:layout_alignParentStart="true"
-                        android:layout_below="@+id/?œí•œ?œê°„"
+                        android:layout_below="@+id/timer"
 
                         android:layout_marginStart="120dp"
                         android:layout_marginTop="28dp"
                         android:layout_toEndOf="@+id/editText3"
                         android:inputType="textPersonName"
-                        android:text="ì´?"
+                        android:text="ì´ˆ"
                         android:textSize="25sp" />
 
 
@@ -165,7 +165,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="32dp"
                         android:background="@drawable/buttonsave_select"
-                        android:text="?? ??"
+                        android:text="ì‹œ ìž‘"
                         android:textColor="#ff7473"
                         android:textSize="25sp" />
 
@@ -177,7 +177,7 @@
                         android:layout_marginStart="44dp"
                         android:layout_toEndOf="@+id/start"
                         android:background="@drawable/buttonsave_select"
-                        android:text="ì·? ??"
+                        android:text="ì·¨ ì†Œ"
                         android:textColor="#ff7473"
                         android:textSize="25sp"
                         android:textStyle="bold" />
