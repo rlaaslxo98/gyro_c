@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -46,6 +47,7 @@ public class BluetoothService {
     // connection
     private static final int STATE_CONNECTED = 3; // now connected to a remote
     // device
+    public static final int INTPUTSTREAM_READ_RETRY_COUNT = 10;
 
 
 
@@ -266,21 +268,16 @@ public class BluetoothService {
             Log.i(TAG, "BEGIN mConnectThread1");
             setName("ConnectThread");
 
-            // ¿¬°áÀ» ½ÃµµÇÏ±â Àü¿¡´Â Ç×»ó ±â±â °Ë»öÀ» ÁßÁöÇÑ´Ù.
-            // ±â±â °Ë»öÀÌ °è¼ÓµÇ¸é ¿¬°á¼Óµµ°¡ ´À·ÁÁö±â ¶§¹®ÀÌ´Ù.
             btAdapter.cancelDiscovery();
 
-            // BluetoothSocket ¿¬°á ½Ãµµ
             try {
-                // BluetoothSocket ¿¬°á ½Ãµµ¿¡ ´ëÇÑ return °ªÀº succes ¶Ç´Â exceptionÀÌ´Ù.
                 mmSocket.connect();
                 Log.d(TAG, "Connect Success");
 
             } catch (IOException e) {
-                connectionFailed(); // ¿¬°á ½ÇÆÐ½Ã ºÒ·¯¿À´Â ¸Þ¼Òµå
+                connectionFailed();
                 Log.d(TAG, "Connect Fail");
 
-                // socketÀ» ´Ý´Â´Ù.
                 try {
                     mmSocket.close();
                 } catch (IOException e2) {
@@ -288,17 +285,14 @@ public class BluetoothService {
                             "unable to close() socket during connection failure",
                             e2);
                 }
-                // ¿¬°áÁß? È¤Àº ¿¬°á ´ë±â»óÅÂÀÎ ¸Þ¼Òµå¸¦ È£ÃâÇÑ´Ù.
                 BluetoothService.this.start();
                 return;
             }
 
-            // ConnectThread Å¬·¡½º¸¦ resetÇÑ´Ù.
             synchronized (BluetoothService.this) {
                 mConnectThread = null;
             }
 
-            // ConnectThread¸¦ ½ÃÀÛÇÑ´Ù.
             connected(mmSocket, mmDevice);
         }
 
@@ -336,7 +330,8 @@ public class BluetoothService {
 
         public void run() {
             Log.i(TAG, "BEGIN mConnectedThread2");
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[2048];
+            //byte[] buffer;
             int bytes;
 /*
             try {
@@ -349,16 +344,24 @@ public class BluetoothService {
             while (true) {
                 try {
                     // InputStream
+                    //buffer = read_data(mmInStream,4);
+
                     mmInStream.read(buffer);
+                    //String byteToString = new String(buffer,0,buffer.length);
+                    //String a = byteToString.split("\n")[0];
+
                     bytes = byteToint(buffer);
 
-                    Log.d("BLUETOOTH",String.valueOf(bytes));
+                    //Log.d("BLUETOOTH1",a);
+                    //mHandler.sendEmptyMessage(Integer.parseInt(a));
                     mHandler.sendEmptyMessage(bytes);
 
                 } catch (IOException e) {
                     Log.e(TAG, "disconnected", e);
                     connectionLost();
                     break;
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -394,6 +397,46 @@ public class BluetoothService {
         buff.order(ByteOrder.LITTLE_ENDIAN);
         return  buff.getInt();
     }
+    /* InputStream으로 부터 EOF를 만날 때까지 모든 데이타를 읽어들임 */
+    private static byte[] read_data(InputStream in) throws Exception {
+        java.io.ByteArrayOutputStream bout = new java.io.ByteArrayOutputStream();
+        int bcount = 0;
+        byte[] buf = new byte[2048];
+        while( true ) {
+            int n = in.read(buf);
+            if (n == -1) break;
+            //System.out.println(n);
+            bcount += n;
+            Log.d("BYTE",String.valueOf(bcount));
+            bout.write(buf,0,n);
+        }
+        bout.flush();
+        //return bout.toString();
+        return bout.toByteArray();
+    }
+    private static final byte[] read_data(InputStream in, int len) throws IOException {
+        ByteArrayOutputStream bout = new ByteArrayOutputStream();
+        int bcount = 0;
+        byte[] buf = new byte[2048];
+        int read_retry_count = 0;
+        while( bcount < len ) {
+            int n = in.read(buf,0, len-bcount < 2048 ? len-bcount : 2048 );
+            if ( n > 0 ) { bcount += n; bout.write(buf,0,n); }
+            // What would like to do if you've got an unexpected EOF before
+            // reading all data ?
+            //else if (n == -1) break;
+            else if ( n == -1 ) throw
+                    new IOException("inputstream has returned an unexpected EOF");
+            else  { // n == 0
+                if (++read_retry_count >= INTPUTSTREAM_READ_RETRY_COUNT)
+                    throw new IOException("inputstream-read-retry-count( " +
+                            INTPUTSTREAM_READ_RETRY_COUNT + ") exceed !");
+            }
+        }
+        bout.flush();
+        return bout.toByteArray();
+    }
+
 
 
 }
