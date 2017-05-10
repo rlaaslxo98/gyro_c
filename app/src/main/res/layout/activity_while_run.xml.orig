@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dudwo.gyrocounter.FinishRunActivity"
+    tools:context="com.dudwo.gyrocounter.WhileRunActivity"
     android:background="#ffc952">
 
     <RelativeLayout
@@ -30,57 +30,102 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:weightSum="1">
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="581dp"
-                    android:layout_weight="1.03">
+                    android:layout_height="158dp">
 
                     <TextView
-                        android:id="@+id/textView6"
+                        android:id="@+id/count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="45dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="30dp"
                         android:layout_marginTop="50dp"
-                        android:text="종료되었습니다!"
-                        android:textColor="#ffffff"
-                        android:textSize="40sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="45dp"
-                        android:layout_marginTop="200dp"
                         android:text="총 횟수:"
                         android:textColor="#ffffff"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/editText2"
+                        android:id="@+id/editText6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/textView4"
-                        android:layout_toEndOf="@+id/textView4"
+<<<<<<< HEAD
+                        android:ems="4"
+                        android:inputType="textPersonName"
+                        android:layout_alignBottom="@+id/count"
+                        android:layout_toEndOf="@+id/count"
+                        android:text=""/>
+=======
+                        android:layout_alignBottom="@+id/총_횟수"
+                        android:layout_toEndOf="@+id/총_횟수"
                         android:ems="4"
                         android:inputType="textPersonName"
                         android:text="" />
+>>>>>>> 03ffc8f1d50801515d9a5d821bca83f24a496376
 
                     <TextView
-                        android:id="@+id/textView5"
+                        android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/editText2"
-                        android:layout_toEndOf="@+id/editText2"
+                        android:layout_alignBottom="@+id/editText6"
+                        android:layout_toEndOf="@+id/editText6"
                         android:inputType="textPersonName"
                         android:text="번"
                         android:textColor="#ffffff"
                         android:textSize="40sp" />
 
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="165dp">
+
+
+                    <TextView
+                        android:id="@+id/time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="14dp"
+                        android:text="TIMER :"
+                        android:textColor="#ffffff"
+                        android:textSize="40sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editText9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/time"
+                        android:layout_toEndOf="@+id/time"
+                        android:ems="4"
+                        android:inputType="textPersonName"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/editText9"
+                        android:layout_toEndOf="@+id/editText9"
+                        android:inputType="textPersonName"
+                        android:text="초"
+                        android:textColor="#ffffff"
+                        android:textSize="40sp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="258dp">
 
                 </RelativeLayout>
 
@@ -96,7 +141,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="32dp"
                         android:background="@drawable/buttonsave_select"
-                        android:text="메인으로"
+                        android:text="일시정지"
                         android:textColor="#ff7473"
                         android:textSize="25sp" />
 
@@ -108,7 +153,7 @@
                         android:layout_marginStart="44dp"
                         android:layout_toEndOf="@+id/start"
                         android:background="@drawable/buttonsave_select"
-                        android:text="다시하기"
+                        android:text="종료"
                         android:textColor="#ff7473"
                         android:textSize="25sp"
                         android:textStyle="bold" />

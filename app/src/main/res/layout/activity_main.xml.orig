@@ -7,6 +7,13 @@
     tools:context="com.dudwo.gyrocounter.MainActivity">
 
     <RelativeLayout
+<<<<<<< HEAD
+        android:layout_width="wrap_content"
+        android:layout_height="495dp"
+        android:padding="0dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+=======
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,6 +24,7 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1">
+>>>>>>> 03ffc8f1d50801515d9a5d821bca83f24a496376
 
         <LinearLayout
             android:layout_width="match_parent"

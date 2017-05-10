@@ -8,10 +8,16 @@
     android:background="#ffc952">
 
     <RelativeLayout
-        android:layout_width="411dp"
-        android:layout_height="603dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,6 +31,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="158dp">
@@ -37,7 +44,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="50dp"
-                        android:text="ì´ íšŸìˆ˜:"
+                        android:text="ì´? ?Ÿìˆ˜:"
                         android:textColor="#ffffff"
                         android:textSize="40sp"
                         android:textStyle="bold" />
@@ -46,22 +53,22 @@
                         android:id="@+id/editText6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="4"
-                        android:inputType="textPersonName"
                         android:layout_alignBottom="@+id/count"
                         android:layout_toEndOf="@+id/count"
-                        android:text=""/>
+                        android:ems="4"
+                        android:inputType="textPersonName"
+                        android:text="" />
 
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ë²ˆ"
-                        android:inputType="textPersonName"
-                        android:textColor="#ffffff"
-                        android:textSize="40sp"
                         android:layout_alignBottom="@+id/editText6"
-                        android:layout_toEndOf="@+id/editText6"/>
+                        android:layout_toEndOf="@+id/editText6"
+                        android:inputType="textPersonName"
+                        android:text="ë²?"
+                        android:textColor="#ffffff"
+                        android:textSize="40sp" />
 
 
                 </RelativeLayout>
@@ -88,22 +95,22 @@
                         android:id="@+id/editText9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="4"
-                        android:inputType="textPersonName"
                         android:layout_alignBottom="@+id/time"
                         android:layout_toEndOf="@+id/time"
+                        android:ems="4"
+                        android:inputType="textPersonName"
                         android:text="" />
 
                     <TextView
                         android:id="@+id/textView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ì´ˆ"
-                        android:inputType="textPersonName"
-                        android:textColor="#ffffff"
-                        android:textSize="40sp"
                         android:layout_alignBottom="@+id/editText9"
-                        android:layout_toEndOf="@+id/editText9" />
+                        android:layout_toEndOf="@+id/editText9"
+                        android:inputType="textPersonName"
+                        android:text="ì´?"
+                        android:textColor="#ffffff"
+                        android:textSize="40sp" />
 
 
                 </RelativeLayout>
@@ -122,13 +129,13 @@
                         android:id="@+id/start"
                         android:layout_width="120dp"
                         android:layout_height="60dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
                         android:layout_marginStart="32dp"
                         android:background="@drawable/buttonsave_select"
-                        android:text="ì¼ì‹œì •ì§€"
+                        android:text="?¼ì‹œ?•ì?"
                         android:textColor="#ff7473"
-                        android:textSize="25sp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentStart="true" />
+                        android:textSize="25sp" />
 
                     <Button
                         android:id="@+id/button2"

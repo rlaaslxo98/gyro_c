@@ -9,10 +9,16 @@
     android:background="#ff7473">
 
     <RelativeLayout
-        android:layout_width="411dp"
-        android:layout_height="603dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,7 +36,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="3">
 
                     <TextView
                         android:id="@+id/text1"
@@ -42,43 +48,29 @@
                         android:layout_marginTop="14dp"
                         android:text="운 동"
                         android:textColor="#ffffff"
-                        android:textSize="30dp"
-                        android:textStyle="bold"/>
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/category"
-                        android:layout_width="300dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignStart="@+id/text1"
                         android:layout_below="@+id/text1"
                         android:background="@null"
-                        android:ems="10"
+                        android:ems="20"
                         android:hint="운동 종류를 입력해주세요"
                         android:inputType="textPersonName"
                         android:textColor="#FFFFB8B8"
                         android:textColorLink="#ffffff"
-                        android:textSize="20dp" />
+                        android:textSize="20sp" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <EditText
-                        android:id="@+id/type"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/text2"
-                        android:layout_below="@+id/text2"
-                        android:background="@null"
-                        android:ems="10"
-                        android:hint="운동 타입을 입력해주세요"
-                        android:inputType="textPersonName"
-                        android:textColor="#FFFFB8B8"
-                        android:textColorLink="#ffffff"
-                        android:textSize="20dp" />
+                    android:layout_weight="3">
 
                     <TextView
                         android:id="@+id/text2"
@@ -90,85 +82,28 @@
                         android:layout_marginTop="14dp"
                         android:text="타 입"
                         android:textColor="#ffffff"
-                        android:textSize="30dp"
-                        android:textStyle="bold"/>
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/text2"
+                        android:layout_below="@+id/text2"
+                        android:background="@null"
+                        android:ems="20"
+                        android:hint="운동 타입을 입력해주세요"
+                        android:inputType="textPersonName"
+                        android:textColor="#FFFFB8B8"
+                        android:textColorLink="#ffffff"
+                        android:textSize="20sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5">
-
-                    <TextView
-                        android:id="@+id/text5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_below="@+id/max"
-                        android:text="     (측정을 원하는 운동의 기울기 범위를 입력해주세요)"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/text6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/text3"
-                        android:layout_marginEnd="15dp"
-                        android:layout_toStartOf="@+id/text4"
-                        android:textColor="#FFFFB8B8"
-                        android:text="~"
-                        android:textSize="60dp" />
-
-                    <TextView
-                        android:id="@+id/text4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="최댓값"
-                        android:textColor="#ffffff"
-                        android:textSize="20dp"
-                        android:layout_marginStart="42dp"
-                        android:layout_alignBaseline="@+id/text3"
-                        android:layout_alignBottom="@+id/text3"
-                        android:layout_toEndOf="@+id/text7" />
-
-                    <TextView
-                        android:id="@+id/text3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="최솟값"
-                        android:textColor="#ffffff"
-                        android:textSize="20dp"
-                        android:layout_marginTop="11dp"
-                        android:layout_below="@+id/text7"
-                        android:layout_alignStart="@+id/text7" />
-
-                    <EditText
-                        android:id="@+id/max"
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/text4"
-                        android:layout_below="@+id/text4"
-                        android:background="@null"
-                        android:ems="10"
-                        android:hint="Max"
-                        android:inputType="number"
-                        android:textColor="#FFFFB8B8"
-                        android:textColorLink="#ffffff"
-                        android:textSize="20dp" />
-
-                    <EditText
-                        android:id="@+id/min"
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/text3"
-                        android:layout_below="@+id/text3"
-                        android:background="@null"
-                        android:ems="10"
-                        android:hint="Min"
-                        android:inputType="number"
-                        android:textColor="#FFFFB8B8"
-                        android:textColorLink="#ffffff"
-                        android:textSize="20dp" />
+                    android:layout_weight="2">
 
                     <TextView
                         android:id="@+id/text7"
@@ -180,8 +115,80 @@
                         android:layout_marginTop="14dp"
                         android:text="기울기 정보 "
                         android:textColor="#ffffff"
-                        android:textSize="30dp"
-                        android:textStyle="bold"/>
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/text7"
+                        android:layout_below="@+id/text7"
+                        android:layout_marginTop="11dp"
+                        android:text="최솟값"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/text6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/text3"
+                        android:layout_marginEnd="15dp"
+                        android:layout_toStartOf="@+id/text4"
+                        android:text="~"
+                        android:textColor="#FFFFB8B8"
+                        android:textSize="60sp" />
+
+                    <TextView
+                        android:id="@+id/text4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/text3"
+                        android:layout_alignBottom="@+id/text3"
+                        android:layout_marginStart="42dp"
+                        android:layout_toEndOf="@+id/text7"
+                        android:text="최댓값"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/min"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/text3"
+                        android:layout_below="@+id/text3"
+                        android:background="@null"
+                        android:ems="3"
+                        android:hint="Min"
+                        android:inputType="number"
+                        android:textColor="#FFFFB8B8"
+                        android:textColorLink="#ffffff"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/max"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/text4"
+                        android:layout_below="@+id/text4"
+                        android:background="@null"
+                        android:ems="3"
+                        android:hint="Max"
+                        android:inputType="number"
+                        android:textColor="#FFFFB8B8"
+                        android:textColorLink="#ffffff"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/text5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="     (측정을 원하는 운동의 기울기 범위를 입력해주세요)"
+                        android:textSize="15sp"
+                        android:layout_below="@+id/text6"
+                        android:layout_alignParentStart="true" />
+
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -198,7 +205,7 @@
                         android:background="@drawable/buttonsave_select"
                         android:text="SAVE"
                         android:textColor="#ff7473"
-                        android:textSize="25dp" />
+                        android:textSize="25sp" />
 
                     <Button
                         android:id="@+id/btn_connect"
@@ -210,7 +217,7 @@
                         android:background="@drawable/buttonsave_select"
                         android:text="연 결"
                         android:textColor="#ff7473"
-                        android:textSize="25dp"
+                        android:textSize="25sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
             </LinearLayout>
