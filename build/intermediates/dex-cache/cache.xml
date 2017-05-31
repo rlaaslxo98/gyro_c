@@ -2,22 +2,13 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="C:\Users\JK\AndroidStudioProjects\gyro_counter--master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\dudwo\.gradle\caches\modules-2\files-2.1\com.squareup\otto\1.3.7\69d90fd7fb70e54746e26c10454c220e40a775ce\otto-1.3.7.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\JK\AndroidStudioProjects\gyro_counter--master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_e1739870b794fac0a597ca4c70f85fedfbf91698\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\JK\AndroidStudioProjects\gyro_counter--master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c547797c420d768807bffbfde1a428faaa4d1dbb">
-        <dex dex="C:\Users\JK\AndroidStudioProjects\gyro_counter--master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3c598f4883b3c486231d59b01fc42faeac7f8bbf\classes.dex" />
+        sha1="69d90fd7fb70e54746e26c10454c220e40a775ce">
+        <dex dex="D:\gyro_c\app\build\intermediates\pre-dexed\debug\otto-1.3.7_8609a4f6f0446f79fcb657d936195a4d6e5dae50.jar" />
     </item>
 
 </items>

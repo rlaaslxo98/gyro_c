@@ -50,7 +50,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/view_deg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="45dp"
@@ -61,21 +61,21 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/editText2"
+                        android:id="@+id/edit_deg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/textView4"
-                        android:layout_toEndOf="@+id/textView4"
+                        android:layout_alignBottom="@+id/view_deg"
+                        android:layout_toEndOf="@+id/view_deg"
                         android:ems="4"
                         android:inputType="textPersonName"
                         android:text="" />
 
                     <TextView
-                        android:id="@+id/textView5"
+                        android:id="@+id/run_min"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/editText2"
-                        android:layout_toEndOf="@+id/editText2"
+                        android:layout_alignBottom="@+id/edit_deg"
+                        android:layout_toEndOf="@+id/edit_deg"
                         android:inputType="textPersonName"
                         android:text="번"
                         android:textColor="#ffffff"
@@ -89,7 +89,7 @@
                     android:layout_height="100dp">
 
                     <Button
-                        android:id="@+id/start"
+                        android:id="@+id/gotomain"
                         android:layout_width="120dp"
                         android:layout_height="60dp"
                         android:layout_alignParentStart="true"
@@ -106,7 +106,7 @@
                         android:layout_height="60dp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="44dp"
-                        android:layout_toEndOf="@+id/start"
+                        android:layout_toEndOf="@+id/gotomain"
                         android:background="@drawable/buttonsave_select"
                         android:text="다시하기"
                         android:textColor="#ff7473"

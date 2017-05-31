@@ -8,9 +8,11 @@ import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -330,36 +332,13 @@ public class BluetoothService {
 
         public void run() {
             Log.i(TAG, "BEGIN mConnectedThread2");
-            byte[] buffer = new byte[2048];
-            //byte[] buffer;
-            int bytes;
-/*
-            try {
-                mmOutStream.write(1);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-*/
+            String deg;
             // Keep listening to the InputStream while connected
             while (true) {
                 try {
-                    // InputStream
-                    //buffer = read_data(mmInStream,4);
+                    deg = readUntilChar(mmInStream,'\n');
+                    mHandler.sendEmptyMessage(Integer.parseInt(deg));
 
-                    mmInStream.read(buffer);
-                    //String byteToString = new String(buffer,0,buffer.length);
-                    //String a = byteToString.split("\n")[0];
-
-                    bytes = byteToint(buffer);
-
-                    //Log.d("BLUETOOTH1",a);
-                    //mHandler.sendEmptyMessage(Integer.parseInt(a));
-                    mHandler.sendEmptyMessage(bytes);
-
-                } catch (IOException e) {
-                    Log.e(TAG, "disconnected", e);
-                    connectionLost();
-                    break;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -390,53 +369,27 @@ public class BluetoothService {
             }
         }
     }
-    public int byteToint(byte[] Value){
-        ByteBuffer buff = ByteBuffer.allocate(4);
-        buff = ByteBuffer.wrap(Value);
 
-        buff.order(ByteOrder.LITTLE_ENDIAN);
-        return  buff.getInt();
-    }
-    /* InputStream으로 부터 EOF를 만날 때까지 모든 데이타를 읽어들임 */
-    private static byte[] read_data(InputStream in) throws Exception {
-        java.io.ByteArrayOutputStream bout = new java.io.ByteArrayOutputStream();
-        int bcount = 0;
-        byte[] buf = new byte[2048];
-        while( true ) {
-            int n = in.read(buf);
-            if (n == -1) break;
-            //System.out.println(n);
-            bcount += n;
-            Log.d("BYTE",String.valueOf(bcount));
-            bout.write(buf,0,n);
-        }
-        bout.flush();
-        //return bout.toString();
-        return bout.toByteArray();
-    }
-    private static final byte[] read_data(InputStream in, int len) throws IOException {
-        ByteArrayOutputStream bout = new ByteArrayOutputStream();
-        int bcount = 0;
-        byte[] buf = new byte[2048];
-        int read_retry_count = 0;
-        while( bcount < len ) {
-            int n = in.read(buf,0, len-bcount < 2048 ? len-bcount : 2048 );
-            if ( n > 0 ) { bcount += n; bout.write(buf,0,n); }
-            // What would like to do if you've got an unexpected EOF before
-            // reading all data ?
-            //else if (n == -1) break;
-            else if ( n == -1 ) throw
-                    new IOException("inputstream has returned an unexpected EOF");
-            else  { // n == 0
-                if (++read_retry_count >= INTPUTSTREAM_READ_RETRY_COUNT)
-                    throw new IOException("inputstream-read-retry-count( " +
-                            INTPUTSTREAM_READ_RETRY_COUNT + ") exceed !");
+    public static String readUntilChar(InputStream stream, char target) {
+        StringBuilder sb = new StringBuilder();
+
+        try {
+            BufferedReader buffer=new BufferedReader(new InputStreamReader(stream));
+
+            int r;
+            while ((r = buffer.read()) != -1) {
+                char c = (char) r;
+
+                if (c == target)
+                    break;
+
+                sb.append(c);
             }
+
+            System.out.println(sb.toString());
+        } catch(IOException e) {
+            // Error handling
         }
-        bout.flush();
-        return bout.toByteArray();
+        return sb.toString();
     }
-
-
-
 }

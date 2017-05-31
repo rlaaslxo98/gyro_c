@@ -5,6 +5,9 @@
     <item android:id="@+id/action_blue"
         android:title="블루투스"
         app:showAsAction="never"/>
+    <item android:id="@+id/action_measure"
+        android:title="기울기측정"
+        app:showAsAction="never"/>
     <item android:id="@+id/action_logout"
         android:title="로그아웃"
         app:showAsAction="never"/>
