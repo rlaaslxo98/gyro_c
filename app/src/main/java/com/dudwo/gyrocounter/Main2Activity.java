@@ -24,6 +24,7 @@ public class Main2Activity extends BaseActivity implements View.OnClickListener{
     Fragment fragment;
     private static final int REQUEST_CONNECT_DEVICE = 1;
     private static final int REQUEST_ENABLE_BT = 2;
+    private static final int REQUEST_DB = 3;
     private static final String TAG = "Bluetooth Service";
 
     private BluetoothService btService = null;
@@ -76,6 +77,7 @@ public class Main2Activity extends BaseActivity implements View.OnClickListener{
     };
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        EventBus.getInstance().post(ActivityResultEvent.create(requestCode, resultCode, data));
         switch (requestCode) {
             case REQUEST_CONNECT_DEVICE:
                 // When DeviceListActivity returns with a device to connect
@@ -121,11 +123,17 @@ public class Main2Activity extends BaseActivity implements View.OnClickListener{
             }
 
         }
-        if(id == R.id.action_logout){
+        else if(id == R.id.action_logout){
             signOut();
             Intent intent = new Intent(this, EmailPasswordActivity.class);
             startActivity(intent);
             overridePendingTransition(R.anim.anim01, R.anim.anim02);
+            finish();
+        }
+
+        else if(id == R.id.action_measure){
+            Intent intent = new Intent(this, MeasureValue.class);
+            startActivity(intent);
             finish();
         }
         return super.onOptionsItemSelected(item);

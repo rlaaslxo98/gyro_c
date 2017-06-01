@@ -8,8 +8,11 @@ import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
 
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -46,6 +49,7 @@ public class BluetoothService {
     // connection
     private static final int STATE_CONNECTED = 3; // now connected to a remote
     // device
+    public static final int INTPUTSTREAM_READ_RETRY_COUNT = 10;
 
 
 
@@ -266,21 +270,16 @@ public class BluetoothService {
             Log.i(TAG, "BEGIN mConnectThread1");
             setName("ConnectThread");
 
-            // ¿¬°áÀ» ½ÃµµÇÏ±â Àü¿¡´Â Ç×»ó ±â±â °Ë»öÀ» ÁßÁöÇÑ´Ù.
-            // ±â±â °Ë»öÀÌ °è¼ÓµÇ¸é ¿¬°á¼Óµµ°¡ ´À·ÁÁö±â ¶§¹®ÀÌ´Ù.
             btAdapter.cancelDiscovery();
 
-            // BluetoothSocket ¿¬°á ½Ãµµ
             try {
-                // BluetoothSocket ¿¬°á ½Ãµµ¿¡ ´ëÇÑ return °ªÀº succes ¶Ç´Â exceptionÀÌ´Ù.
                 mmSocket.connect();
                 Log.d(TAG, "Connect Success");
 
             } catch (IOException e) {
-                connectionFailed(); // ¿¬°á ½ÇÆÐ½Ã ºÒ·¯¿À´Â ¸Þ¼Òµå
+                connectionFailed();
                 Log.d(TAG, "Connect Fail");
 
-                // socketÀ» ´Ý´Â´Ù.
                 try {
                     mmSocket.close();
                 } catch (IOException e2) {
@@ -288,17 +287,14 @@ public class BluetoothService {
                             "unable to close() socket during connection failure",
                             e2);
                 }
-                // ¿¬°áÁß? È¤Àº ¿¬°á ´ë±â»óÅÂÀÎ ¸Þ¼Òµå¸¦ È£ÃâÇÑ´Ù.
                 BluetoothService.this.start();
                 return;
             }
 
-            // ConnectThread Å¬·¡½º¸¦ resetÇÑ´Ù.
             synchronized (BluetoothService.this) {
                 mConnectThread = null;
             }
 
-            // ConnectThread¸¦ ½ÃÀÛÇÑ´Ù.
             connected(mmSocket, mmDevice);
         }
 
@@ -336,29 +332,15 @@ public class BluetoothService {
 
         public void run() {
             Log.i(TAG, "BEGIN mConnectedThread2");
-            byte[] buffer = new byte[1024];
-            int bytes;
-/*
-            try {
-                mmOutStream.write(1);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-*/
+            String deg;
             // Keep listening to the InputStream while connected
             while (true) {
                 try {
-                    // InputStream
-                    mmInStream.read(buffer);
-                    bytes = byteToint(buffer);
+                    deg = readUntilChar(mmInStream,'\n');
+                    mHandler.sendEmptyMessage(Integer.parseInt(deg));
 
-                    Log.d("BLUETOOTH",String.valueOf(bytes));
-                    mHandler.sendEmptyMessage(bytes);
-
-                } catch (IOException e) {
-                    Log.e(TAG, "disconnected", e);
-                    connectionLost();
-                    break;
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -387,13 +369,27 @@ public class BluetoothService {
             }
         }
     }
-    public int byteToint(byte[] Value){
-        ByteBuffer buff = ByteBuffer.allocate(4);
-        buff = ByteBuffer.wrap(Value);
 
-        buff.order(ByteOrder.LITTLE_ENDIAN);
-        return  buff.getInt();
+    public static String readUntilChar(InputStream stream, char target) {
+        StringBuilder sb = new StringBuilder();
+
+        try {
+            BufferedReader buffer=new BufferedReader(new InputStreamReader(stream));
+
+            int r;
+            while ((r = buffer.read()) != -1) {
+                char c = (char) r;
+
+                if (c == target)
+                    break;
+
+                sb.append(c);
+            }
+
+            System.out.println(sb.toString());
+        } catch(IOException e) {
+            // Error handling
+        }
+        return sb.toString();
     }
-
-
 }

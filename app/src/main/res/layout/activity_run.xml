@@ -36,14 +36,14 @@
                     android:layout_weight="2">
 
                     <TextView
-                        android:id="@+id/운동선택"
+                        android:id="@+id/select_work"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="14dp"
-                        android:text="운동선택"
+                        android:text="운동 선택"
                         android:textColor="#ffffff"
                         android:textSize="30sp"
                         android:textStyle="bold" />
@@ -54,20 +54,20 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="25dp"
-                        android:layout_toEndOf="@+id/textView5"
+                        android:layout_toEndOf="@+id/run_min"
                         android:text="~"
                         android:textSize="40dp" />
 
                     <EditText
-                        android:id="@+id/editText"
+                        android:id="@+id/sel_work"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/운동선택"
-                        android:layout_below="@+id/운동선택"
+                        android:layout_alignStart="@+id/select_work"
+                        android:layout_below="@+id/select_work"
                         android:layout_marginTop="13dp"
                         android:background="@null"
                         android:ems="10"
-                        android:hint="운동을 선택해주세요"
+                        android:hint="원하는 운동을 선택하세요"
                         android:inputType="textPersonName"
                         android:textColor="@color/colorAccent"
                         android:textColorLink="#ffffff"
@@ -78,27 +78,27 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@+id/textView8"
-                        android:layout_alignEnd="@+id/editText"
+                        android:layout_alignEnd="@+id/sel_work"
                         android:layout_marginEnd="21dp"
                         android:text="..." />
 
                     <TextView
-                        android:id="@+id/textView5"
+                        android:id="@+id/run_min"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/editText"
+                        android:layout_alignStart="@+id/sel_work"
                         android:layout_centerVertical="true"
-                        android:text="MIN"
+                        android:hint="MIN"
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/textView6"
+                        android:id="@+id/run_max"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBaseline="@+id/textView5"
-                        android:layout_alignBottom="@+id/textView5"
-                        android:layout_toEndOf="@+id/운동선택"
-                        android:text="MAX"
+                        android:layout_alignBaseline="@+id/run_min"
+                        android:layout_alignBottom="@+id/run_min"
+                        android:layout_toEndOf="@+id/select_work"
+                        android:hint="MAX"
                         android:textSize="20sp" />
 
 
@@ -111,24 +111,24 @@
 
 
                     <TextView
-                        android:id="@+id/제한시간"
+                        android:id="@+id/timer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="14dp"
-                        android:text="제한시간"
+                        android:text="timer"
                         android:textColor="#ffffff"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/editText3"
+                        android:id="@+id/time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/제한시간"
-                        android:layout_below="@+id/제한시간"
+                        android:layout_alignStart="@+id/timer"
+                        android:layout_below="@+id/timer"
                         android:layout_marginTop="20dp"
                         android:ems="4"
                         android:inputType="time" />
@@ -137,14 +137,14 @@
                         android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/editText3"
+                        android:layout_alignBottom="@+id/time"
 
                         android:layout_alignParentStart="true"
-                        android:layout_below="@+id/제한시간"
+                        android:layout_below="@+id/timer"
 
                         android:layout_marginStart="120dp"
                         android:layout_marginTop="28dp"
-                        android:layout_toEndOf="@+id/editText3"
+                        android:layout_toEndOf="@+id/time"
                         android:inputType="textPersonName"
                         android:text="초"
                         android:textSize="25sp" />
@@ -158,7 +158,7 @@
                     android:layout_weight="3">
 
                     <Button
-                        android:id="@+id/start"
+                        android:id="@+id/gotomain"
                         android:layout_width="120dp"
                         android:layout_height="60dp"
                         android:layout_alignParentStart="true"
@@ -175,7 +175,7 @@
                         android:layout_height="60dp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="44dp"
-                        android:layout_toEndOf="@+id/start"
+                        android:layout_toEndOf="@+id/gotomain"
                         android:background="@drawable/buttonsave_select"
                         android:text="취 소"
                         android:textColor="#ff7473"
@@ -197,4 +197,3 @@
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
-
