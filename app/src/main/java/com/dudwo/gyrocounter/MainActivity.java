@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             startActivity(intent);
             overridePendingTransition(R.anim.anim01, R.anim.anim02);
             Main2Activity.flag = 4;
-            finish();
         }
 
     }

@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\JK\AndroidStudioProjects\gyro_counter--master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\user\AndroidStudioProjects\gyro_c\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4ceec9e327da789fd784193a85ef682ad1202572">
+        <dex dex="C:\Users\user\AndroidStudioProjects\gyro_c\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_d35be861f8ed27737b4ff0444b74a04babd7d1c2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\AndroidStudioProjects\gyro_c\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\JK\AndroidStudioProjects\gyro_counter--master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_e1739870b794fac0a597ca4c70f85fedfbf91698\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\JK\AndroidStudioProjects\gyro_counter--master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c547797c420d768807bffbfde1a428faaa4d1dbb">
-        <dex dex="C:\Users\JK\AndroidStudioProjects\gyro_counter--master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3c598f4883b3c486231d59b01fc42faeac7f8bbf\classes.dex" />
+        <dex dex="C:\Users\user\AndroidStudioProjects\gyro_c\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_8d0039d5682fd866eae9ff3a0c87e7e486ab9733\classes.dex" />
     </item>
 
 </items>

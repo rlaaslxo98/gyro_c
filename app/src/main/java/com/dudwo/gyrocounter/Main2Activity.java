@@ -153,5 +153,9 @@ public class Main2Activity extends BaseActivity implements View.OnClickListener{
             fragmentTransaction.replace(R.id.container,fragment);
             fragmentTransaction.commit();
         }
+        if (i == R.id.help){
+            Intent intent = new Intent(this, Help.class);
+            startActivity(intent);
+        }
     }
 }
