@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         findViewById(R.id.add_work).setOnClickListener(this);
         findViewById(R.id.run).setOnClickListener(this);
         findViewById(R.id.sign_out_button2).setOnClickListener(this);
+        findViewById(R.id.histroy_btn).setOnClickListener(this);
 
 
         if(user != null){
@@ -56,6 +57,12 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             overridePendingTransition(R.anim.anim01, R.anim.anim02);
             Main2Activity.flag = 2;
             finish();
+        }
+        else if (i == R.id.histroy_btn) {
+            Intent intent = new Intent(this,result_db.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.anim01, R.anim.anim02);
+            Main2Activity.flag = 3;
         }
         else if(i==R.id.sign_out_button2){
             Intent intent=new Intent(this, Help.class);

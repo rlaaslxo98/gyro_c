@@ -45,6 +45,7 @@
         <activity android:name=".WhileRunActivity" />
         <activity android:name=".Main2Activity" />
         <activity android:name=".Help" />
+        <activity android:name=".result_db"></activity>
     </application>
 
 </manifest>

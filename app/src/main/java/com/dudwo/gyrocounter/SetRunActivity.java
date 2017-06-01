@@ -139,12 +139,5 @@ public class SetRunActivity extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         int i = v.getId();
-/*
-        if (i == R.id.run_btn) {
-            Intent intent = new Intent(this, RunActivity.class);
-            startActivity(intent);
-            finish();
-        }
-*/
     }
 }
