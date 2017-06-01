@@ -7,7 +7,7 @@ import android.os.Message;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.app.Fragment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class Main2Activity extends BaseActivity implements View.OnClickListener{
 
     public static int flag;
-    android.app.Fragment fragment;
+    Fragment fragment;
     private static final int REQUEST_CONNECT_DEVICE = 1;
     private static final int REQUEST_ENABLE_BT = 2;
     private static final int REQUEST_DB = 3;
@@ -45,18 +45,19 @@ public class Main2Activity extends BaseActivity implements View.OnClickListener{
 
         if(flag==1){
             fragment = new AddWork();
-            android.app.FragmentManager fragmentManager=getFragmentManager();
-            android.app.FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+            android.support.v4.app.FragmentManager fragmentManager=getSupportFragmentManager();
+            android.support.v4.app.FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container,fragment);
             fragmentTransaction.commit();
         }
         if(flag==2){
             fragment = new RunActivity();
-            android.app.FragmentManager fragmentManager=getFragmentManager();
-            android.app.FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+            android.app.FragmentManager fragmentManager=getSupportFragmentManager();
+            android..app.FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container,fragment);
             fragmentTransaction.commit();
         }
+
 
 
         if (btService == null) {
@@ -88,11 +89,11 @@ public class Main2Activity extends BaseActivity implements View.OnClickListener{
             case REQUEST_ENABLE_BT:
                 // When the request to enable Bluetooth returns
                 if (resultCode == Activity.RESULT_OK) {
-                    // 확인 눌렀을 때
+                    // ?�인 ?��??? ??
                     // Next Step
                     btService.scanDevice();
                 } else {
-                    // 취소 눌렀을 때
+                    // 취소 ?��??? ??
                     Log.d(TAG, "Bluetooth is not enabled");
                 }
                 break;
@@ -113,7 +114,7 @@ public class Main2Activity extends BaseActivity implements View.OnClickListener{
         int id = item.getItemId();
         if (id == R.id.action_blue){
             if (btService.getDeviceState()){
-                //블루투스가 지원가능한 기기일때
+                //블루?�스가 지?��??�한 기기?�때
                 btService.enableBluetooth();
                 Log.d("AAAA","AAAA");
                 btService.write("a".getBytes());
@@ -148,18 +149,21 @@ public class Main2Activity extends BaseActivity implements View.OnClickListener{
 
         if (i == R.id.addwork){
             fragment = new AddWork();
-            android.app.FragmentManager fragmentManager=getFragmentManager();
-            android.app.FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+            android.support.v4.app.FragmentManager fragmentManager=getSupportFragmentManager();
+            android.support.v4.app.FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container,fragment);
             fragmentTransaction.commit();
         }
         if (i == R.id.run){
             fragment = new RunActivity();
-            android.app.FragmentManager fragmentManager=getFragmentManager();
-            android.app.FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+            android.support.v4.app.FragmentManager fragmentManager=getSupportFragmentManager();
+            android.support.v4.app.FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container,fragment);
             fragmentTransaction.commit();
         }
-
+        if (i == R.id.help){
+            Intent intent = new Intent(this, Help.class);
+            startActivity(intent);
+        }
     }
 }
